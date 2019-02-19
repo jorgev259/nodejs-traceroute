@@ -9,6 +9,7 @@ class Traceroute extends Process {
 
     parseDestination(data) {
         const regex = /^traceroute\sto\s(?:[a-zA-Z0-9:.]+)\s\(([a-zA-Z0-9:.]+)\)/;
+        
         const parsedData = new RegExp(regex, '').exec(data);
 
         let result = null;
@@ -21,6 +22,7 @@ class Traceroute extends Process {
 
     parseHop(hopData) {
         const regex = /^\s*(\d+)\s+(?:([a-zA-Z0-9:.]+)\s+([0-9.]+\s+ms)|(\*))/;
+        console.log(hopData)
         const parsedData = new RegExp(regex, '').exec(hopData);
 
         let result = null;
