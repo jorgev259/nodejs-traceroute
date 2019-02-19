@@ -24,6 +24,7 @@ class Traceroute extends Process {
         const parsedData = new RegExp(regex, '').exec(hopData);
 
         let result = null;
+        console.log(parsedData)
         if (parsedData !== null) {
             if (parsedData[4] === undefined) {
                 result = {
