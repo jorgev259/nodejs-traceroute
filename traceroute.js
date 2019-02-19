@@ -28,6 +28,7 @@ class Traceroute extends Process {
         let result = null;
         let parsedData = hopData.split(' ')
         if(parsedData[0] !== "traceroute"){
+            result = {}
             result.hop = parseInt(parsedData[0], 10)
             if(parsedData[2]) result.ip = `${parsedData[1]} ${parsedData[2]}`
             else result.ip = parsedData[1]
