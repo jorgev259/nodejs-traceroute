@@ -26,7 +26,7 @@ class Traceroute extends Process {
         // const parsedData = new RegExp(regex, '').exec(hopData);
 
         let result = null;
-        let parsedData = hopData.split(' ')
+        let parsedData = hopData.split(' ').filter(e => e !== '')
         if(parsedData[0] !== "traceroute"){
             result = {}
             result.hop = parseInt(parsedData[0], 10)
