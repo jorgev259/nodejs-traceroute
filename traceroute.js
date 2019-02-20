@@ -21,10 +21,6 @@ class Traceroute extends Process {
     }
 
     parseHop(hopData) {
-        const regex = /^\s*(\d+)\s+(?:([a-zA-Z0-9:.]+)\s+([0-9.]+\s+ms)|(\*))/;
-        console.log(hopData)
-        // const parsedData = new RegExp(regex, '').exec(hopData);
-
         let result = null;
         let parsedData = hopData.split(' ').filter(e => e !== '')
         if(parsedData[0] !== "traceroute"){
@@ -43,9 +39,6 @@ class Traceroute extends Process {
 
             if(parsedData[3]) result.rtt1 = `${parsedData[3]} ${parsedData[4]}`
         }    
-        console.log(parsedData)
-        console.log(result)
-
         return result;
     }
 }
