@@ -30,8 +30,17 @@ class Traceroute extends Process {
         if(parsedData[0] !== "traceroute"){
             result = {}
             result.hop = parseInt(parsedData[0], 10)
-            if(parsedData[2]) result.ip = `${parsedData[1]} ${parsedData[2]}`
-            else result.ip = parsedData[1]
+            let hostname = parsedData[1]            
+            result.ip = hostname
+            
+            if(parsedData[2]){
+                let ip = parsedData[2].replace(/[()]/g, '')
+                if(ip !== hostname){
+                    result.ip = ip
+                    result.hostname = hostname
+                }
+            }
+
             if(parsedData[3]) result.rtt1 = `${parsedData[3]} ${parsedData[4]}`
         }    
         console.log(parsedData)
